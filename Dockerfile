@@ -6,11 +6,10 @@ RUN pip install --upgrade pip
 WORKDIR /app
 COPY . .
 
-# Устанавливаем зависимости из requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Устанавливаем браузеры Playwright
+ENV PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+
 RUN playwright install --with-deps
 
-# Запускаем скрипт без poetry
 CMD ["python", "main.py"]
