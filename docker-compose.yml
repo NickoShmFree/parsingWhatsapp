@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  whatsapp_scraper:
+    build: .
+    container_name: whatsapp_scraper
+    volumes:
+      - chrome_data:/app/data_chrome
+    environment:
+      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+    shm_size: '2gb'
+
+volumes:
+  chrome_data:
